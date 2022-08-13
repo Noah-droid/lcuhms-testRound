@@ -1,0 +1,94 @@
+{% extends 'hostelapp/main.html' %}
+{% load static %}
+{% block content %}
+
+    <p><h1 color="red">Welcome to our Hostel Room Booking System</h1></p>
+
+   
+     
+
+
+<style id = "table_style" type="text/css">
+        /*body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }*/
+        table
+        {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        table th
+        {
+            background-color: #F7F7F7;
+            color: #333;
+            font-weight: bold;
+        }
+        table th, table td
+        {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        function PrintTable() {
+            var printWindow = window.open('', '', 'height=200,width=400');
+            printWindow.document.write('<html><head><title>Table Contents</title>');
+
+            //Print the Table CSS.
+            var table_style = document.getElementById("table_style").innerHTML;
+            printWindow.document.write('<style type = "text/css">');
+            printWindow.document.write(table_style);
+            printWindow.document.write('</style>');
+            printWindow.document.write('</head>');
+
+            //Print the DIV contents ie. the HTML Table.
+            printWindow.document.write('<body>');
+            var divContents = document.getElementById("dvContents").innerHTML;
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body>');
+
+            printWindow.document.write('</html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</head>
+<body>
+	 {% for i in data_info %}
+    <div id="dvContents" style="padding: 5px;width:305px">
+
+            <div class="d-flex justify-content-center">
+
+<img src="{% static 'img/LCU.jpg'%}" align="center" width="70" height="70" class="rounded-circle">
+<br />
+
+
+            </div>
+            <!-- <h1>LEAD CITY UNIVERSITY</h1> -->
+<br>
+<h3 align="center">E-Receipt</h3>
+        <table cellspacing="0" rules="all" border="1" align="center">
+            <tr>
+                <th>user name</th>
+                <th>booked room</th>
+                <th>Ref No</th>
+            </tr>
+            <tr>
+                <td>{{ i.user }}</td>
+                <td>{{ i.user_room }}</td>
+                <td>{{ i.id }}</td>
+                <td>{{i.created_on}}</td>
+            </tr>
+            
+        </table>
+    </div>
+    <br />
+    <input type="button" class="btn btn-primary btn-lg btn-success" onclick="PrintTable();" value="Print" />
+
+    {% endfor %}
+
+{% endblock %}
+
+

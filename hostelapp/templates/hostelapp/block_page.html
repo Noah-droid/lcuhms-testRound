@@ -1,0 +1,132 @@
+{% extends 'hostelapp/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<h1>MALE HOSTELS</h1>
+<hr>
+ <div class="card mb-2">
+              <a href="">
+              <img src="{% static 'img/bg.jpg'%}" class="card-img-top thumbnail" height='auto' width="contain">
+              </a>
+
+              <div class="card-body">
+             
+             
+                </a>
+                <hr>
+                
+                <div class="card-text">
+              <p>This is an hostel located at the outskirt of the school</p>
+                  <br>
+
+                 
+                  <hr>
+                  
+                <div class="card-footer">
+                  <a href="/student/floor/3/" class="btn btn-primary btn-lg btn-danger">Boys Hostel</a>
+                </div>
+              </div>
+            </div>
+
+
+
+ <div class="card mb-2">
+              <a href="">
+              <img src="{% static 'img/bg.jpg'%}" class="card-img-top" height="contain" width="contain">
+              </a>
+
+              <div class="card-body">
+          
+             
+                </a>
+                <hr>
+                
+                <div class="card-text">
+              <p>This for boys</p>
+                  <br>
+
+                 
+                  <hr>
+                  
+                <div class="card-footer">
+                  <a href="/student/floor/2/" class="btn btn-primary btn-lg btn-danger">Semi Hostel</a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<br>
+<h1>FEMALE HOSTELS</h1>
+<hr>
+ <div class="card mb-2">
+              <a href="">
+              <img src="{% static 'img/bg.jpg'%}" class="card-img-top thumbnail" height='auto' width="contain">
+              </a>
+
+              <div class="card-body">
+             
+             
+                </a>
+                <hr>
+                
+                <div class="card-text">
+              <p>This is an hostel located at the outskirt of the school Enterprise</p>
+                  <br>
+
+                 
+                  <hr>
+                  
+                <div class="card-footer">
+                  <a href="/student/floor/3/" class="btn btn-primary btn-lg btn-danger">Girls Hostel</a>
+                </div>
+              </div>
+            </div>
+
+
+
+ <div class="card mb-2">
+              <a href="">
+              <img src="{% static 'img/bg.jpg'%}" class="card-img-top" height="contain" width="contain">
+              </a>
+
+              <div class="card-body">
+          
+             
+                </a>
+                <hr>
+                
+                <div class="card-text">
+              <p>This is for girls</p>
+                  <br>
+
+                 
+                  <hr>
+                  
+                <div class="card-footer">
+                  <a href="/student/floor/4/" class="btn btn-primary btn-lg btn-danger">Semi Hostel</a>
+                </div>
+              </div>
+            </div>
+{% endblock %}
+
+
+ <!--  {#
+    {% for i in blocks_list %}
+        <p></p>
+        <a href="{% url 'floor' i.id %}" class="btn btn-primary btn-lg btn-danger">{{ i.Block_Name }}</a>
+    {% endfor %}#}   -->

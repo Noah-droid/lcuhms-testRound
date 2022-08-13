@@ -1,0 +1,88 @@
+{% extends 'hostelapp/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <h1>Hi this is your Room Confirmation Page.</h1>
+
+    <!-- <p> Your Booking Room Number is {{ room_number }} </p>
+    <p>Your Floor Number is {{ floor_number.Floor_Number }}</p>
+    <p>Your Block Number is {{ block_name }}</p>
+     -->
+    
+
+ <style id = "table_style" type="text/css">
+        /*body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }*/
+        table
+        {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        table th
+        {
+            background-color: #F7F7F7;
+            color: #333;
+            font-weight: bold;
+        }
+        table th, table td
+        {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        function PrintTable() {
+            var printWindow = window.open('', '', 'height=200,width=400');
+            printWindow.document.write('<html><head><title>Table Contents</title>');
+
+            //Print the Table CSS.
+            var table_style = document.getElementById("table_style").innerHTML;
+            printWindow.document.write('<style type = "text/css">');
+            printWindow.document.write(table_style);
+            printWindow.document.write('</style>');
+            printWindow.document.write('</head>');
+
+            //Print the DIV contents ie. the HTML Table.
+            printWindow.document.write('<body>');
+            var divContents = document.getElementById("dvContents").innerHTML;
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body>');
+
+            printWindow.document.write('</html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</head>
+<body>
+    <div id="dvContents" style=" padding: 5px;width:305px">
+        <table cellspacing="0" rules="all" border="1">
+            <tr>
+                <th>Room Number</th>
+                <!-- <th>Floor Number</th> -->
+                <th>Hostel Name</th>
+            </tr>
+            <tr>
+                <td>{{ room_number }}</td>
+                <!-- <td>{{ floor_number.Floor_Number }}</td> -->
+                <td>{{ block_name }}</td>
+            </tr>
+            
+        </table>
+    </div>
+    <br />
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <br>
+        <a href="{% url 'home' %}" class="btn btn-primary btn-lg btn-danger">Cancel</a>
+        <button class="btn btn-primary btn-lg btn-success" type="submit" name="update">Book</button>
+    </form>
+    <!-- <input type="button" onclick="PrintTable();" value="Print" /> -->
+{% endblock %}
